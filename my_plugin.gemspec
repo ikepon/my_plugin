@@ -9,14 +9,18 @@ Gem::Specification.new do |s|
   s.version     = MyPlugin::VERSION
   s.authors     = ["ikepon"]
   s.email       = ["tatsuyanoheya@gmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of MyPlugin."
-  s.description = "TODO: Description of MyPlugin."
+  s.homepage    = "https://github.com/ikepon/my_plugin"
+  s.summary     = "http://easyramble.com/create-rails-plugin-gem.html をやってみたリポジトリ"
+  s.description = "http://easyramble.com/create-rails-plugin-gem.html をやってみたリポジトリ"
   s.license     = "MIT"
 
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
+  s.files         = `git ls-files`.split("\n")
+  s.test_files    = `git ls-files`.split("\n").grep(%r{^(test|spec|features)/})
+  s.require_paths = ['lib']
 
   s.add_dependency "rails", "~> 5.1.4"
 
   s.add_development_dependency "sqlite3"
+  s.add_development_dependency 'byebug'
+  s.add_development_dependency "rspec-rails"
 end
